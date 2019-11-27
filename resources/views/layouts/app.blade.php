@@ -76,6 +76,6 @@
         </main>
     </div>
     @include('sweetalert::alert')
-    
+    <script src="https://kit.fontawesome.com/e440d58f67.js" crossorigin="anonymous"></script>
 </body>
 </html>
