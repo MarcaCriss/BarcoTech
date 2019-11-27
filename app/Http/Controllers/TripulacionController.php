@@ -14,7 +14,8 @@ class TripulacionController extends Controller
      */
     public function index()
     {
-        //
+        $datos = tripulacion::all();
+        return view('tripulacion.index', compact('datos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TripulacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('tripulacion.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class TripulacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = new tripulacion();
+        $datos->nombre = $request->nombre;
+        $datos->nombre = $request->nombre;
+        $datos->nombre = $request->nombre;
+        $datos->nombre = $request->nombre;
+        $datos->nombre = $request->nombre;
+        $datos->save();
     }
 
     /**
