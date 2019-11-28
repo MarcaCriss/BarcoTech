@@ -20,23 +20,23 @@
                         @csrf                        
                         <div class="form-group">
                             <label for="">Ingrese el nombre : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="nombre">
                         </div>
                         <div class="form-group">
                             <label for="">Ingrese la direccion : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="direccion">
                         </div>
-                        <div class="form-group" class="form-control">
+                        <div class="form-group">
                             <label for="">Ingrese el telefono : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="telefono">
                         </div>
-                        <div class="form-group" class="form-control">
+                        <div class="form-group">
                             <label for="">Ingrese el numero de horas : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="numero_hora">
                         </div>
                         <div class="form-group">
                             <label for="">Ingrese el valor en horas : </label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="valor_hora">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary">Registrar tripulante</button>
@@ -45,6 +45,20 @@
                 </div>
             </div>
         </div>
+    </div><br><br>
+    <div class="row">
+        @foreach ($datos as $item)
+            <div class="col-md-4 col-sm-6 mt-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{ $item->nombre }}
+                    </div>
+                    <div class="card-body">
+                        {{ $item->telefono }}
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection

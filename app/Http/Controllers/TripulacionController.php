@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\tripulacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateRequestTripulacion;
 
 class TripulacionController extends Controller
 {
@@ -34,15 +35,16 @@ class TripulacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequestTripulacion $request)
     {
         $datos = new tripulacion();
         $datos->nombre = $request->nombre;
-        $datos->nombre = $request->nombre;
-        $datos->nombre = $request->nombre;
-        $datos->nombre = $request->nombre;
-        $datos->nombre = $request->nombre;
+        $datos->direccion = $request->direccion;
+        $datos->telefono = $request->telefono;
+        $datos->num_horas = $request->numero_hora;
+        $datos->valor_horas = $request->valor_hora;
         $datos->save();
+        return redirect('/tripulacion');
     }
 
     /**
