@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-    <div id="app">
-        <nav class=" sal navbar navbar-expand-md shadow-sm">
+    <div id="app">        
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">                
                     <div class="text-white">
                         BarcoTech
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </nav>
-
+        
         <main class="py-4">
             @yield('content')
         </main>

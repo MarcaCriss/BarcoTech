@@ -20,23 +20,23 @@
                         @csrf                        
                         <div class="form-group">
                             <label for="">Ingrese el nombre : </label>
-                            <input type="text" class="form-control" name="nombre">
+                            <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}">
                         </div>
                         <div class="form-group">
                             <label for="">Ingrese la direccion : </label>
-                            <input type="text" class="form-control" name="direccion">
+                            <input type="text" class="form-control" name="direccion" value="{{ old('direccion') }}">
                         </div>
                         <div class="form-group">
                             <label for="">Ingrese el telefono : </label>
-                            <input type="text" class="form-control" name="telefono">
+                            <input type="text" class="form-control" name="telefono" value="{{ old('telefono') }}">
                         </div>
                         <div class="form-group">
                             <label for="">Ingrese el numero de horas : </label>
-                            <input type="text" class="form-control" name="numero_hora">
+                            <input type="text" class="form-control" name="numero_hora" value="{{ old('numero_hora') }}">
                         </div>
                         <div class="form-group">
                             <label for="">Ingrese el valor en horas : </label>
-                            <input type="text" class="form-control" name="valor_hora">
+                            <input type="text" class="form-control" name="valor_hora" value="{{ old('valor_hora') }}">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary">Registrar tripulante</button>

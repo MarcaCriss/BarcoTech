@@ -26,7 +26,7 @@ class TripulacionController extends Controller
      */
     public function create()
     {
-        return view('tripulacion.create');
+        //
     }
 
     /**
@@ -44,6 +44,7 @@ class TripulacionController extends Controller
         $datos->num_horas = $request->numero_hora;
         $datos->valor_horas = $request->valor_hora;
         $datos->save();
+        toast('Tripulante creado exitosamente','success'); 
         return redirect('/tripulacion');
     }
 
