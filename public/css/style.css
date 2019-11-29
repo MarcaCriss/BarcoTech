@@ -1,6 +1,7 @@
 
 html, body {
     background-image: url("../img/barco.jpg");
+    background-position: center center;    
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Nunito', sans-serif;

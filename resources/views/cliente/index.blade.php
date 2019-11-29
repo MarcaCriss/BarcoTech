@@ -54,7 +54,9 @@
                             </div>
                             <div class="card-body bg-white">
                                 {{ $item->direccion }} <br>
+                                <hr>
                                 {{ $item->telefono }} <br>
+                                <hr>
                                 {{ $item->experiencia }}
                             </div>
                         </div>
@@ -64,7 +66,14 @@
         </div>
     @else
         <div class="container mt-5 text-white bg-dark">
-            <div class="display-4 text-center">Debe Logearse para ingresar al sistema</div>
+            <div class="row">
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis officiis cumque accusamus omnis facere sed impedit corporis beatae magnam voluptate explicabo, maxime, maiores ducimus sit, sunt consectetur deserunt! Est, ducimus.
+                </div>
+                <div class="col">
+                    
+                </div>
+            </div>
         </div>
     @endauth    
 @endsection
