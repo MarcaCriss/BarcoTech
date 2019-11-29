@@ -6,6 +6,7 @@ use App\cliente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\CreateRequestCliente;
 
 
 
@@ -39,7 +40,7 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequestCliente $request)
     {
         $datos = new cliente();
         $datos->nombre = $request->nombre;
@@ -80,7 +81,7 @@ class ClienteController extends Controller
      * @param  \App\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cliente $cliente)
+    public function update(CreateRequestCliente $request, cliente $cliente)
     {
         //
     }

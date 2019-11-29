@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-  
-class CreateRequestTripulacion extends FormRequest
+
+class CreateRequestCliente extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,10 @@ class CreateRequestTripulacion extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',            
-            'direccion' => 'required',            
-            'telefono' => 'required|integer',            
-            'numero_hora' => 'required|integer',            
-            'valor_hora' => 'required|integer',            
-        ];
-    }
-
-    public function messages()
-    {
-        return[
-            
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required|integer',
+            'experiencia' => 'required',
         ];
     }
 }

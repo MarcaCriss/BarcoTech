@@ -45,7 +45,7 @@ class TripulacionController extends Controller
         $datos->valor_horas = $request->valor_hora;
         $datos->save();
         toast('Tripulante creado exitosamente','success'); 
-        return redirect('/tripulacion');
+        return redirect()->back();
     }
 
     /**
@@ -77,7 +77,7 @@ class TripulacionController extends Controller
      * @param  \App\tripulacion  $tripulacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tripulacion $tripulacion)
+    public function update(CreateRequestTripulacion $request, tripulacion $tripulacion)
     {
         //
     }

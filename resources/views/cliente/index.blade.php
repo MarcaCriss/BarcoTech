@@ -63,7 +63,7 @@
             </div>
         </div>
     @else
-        <div class="container mt-5">
+        <div class="container mt-5 text-white bg-dark">
             <div class="display-4 text-center">Debe Logearse para ingresar al sistema</div>
         </div>
     @endauth    
