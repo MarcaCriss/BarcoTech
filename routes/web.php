@@ -1,7 +1,7 @@
 <?php
-DB::listen(function($query){
+/*DB::listen(function($query){
     echo "<pre>{$query->sql}</pre>";
-});
+});*/
 
 use RealRashid\SweetAlert\Facades\Alert;
 
