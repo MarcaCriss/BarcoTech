@@ -14,7 +14,7 @@ class PropietarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('propietario.index');
     }
 
     /**
