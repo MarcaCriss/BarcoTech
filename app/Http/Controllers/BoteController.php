@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\bote;
+use App\equipo;
+use App\propietario;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BoteController extends Controller
 {
@@ -14,7 +17,7 @@ class BoteController extends Controller
      */
     public function index()
     {
-        //
+                
     }
 
     /**
@@ -24,7 +27,9 @@ class BoteController extends Controller
      */
     public function create()
     {
-        //
+        $equipo = equipo::all();
+        $propietario = propietario::all();
+        return view('barco.create', compact('equipo','propietario'));
     }
 
     /**

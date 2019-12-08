@@ -20,7 +20,7 @@
                     </div>    
                 @endforeach            
             </div>
+            {{ $datos->links() }}
         </div>  
-      
     @endauth    
 @endsection

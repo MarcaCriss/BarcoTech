@@ -18,7 +18,7 @@ class CreatePropietariosTable extends Migration
             $table->string('nombre');
             $table->integer('valor_bote');
             $table->string('tamaño');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->timestamps();
         });
     }

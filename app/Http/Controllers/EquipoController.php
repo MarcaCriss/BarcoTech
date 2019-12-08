@@ -16,8 +16,8 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        $datos = equipo::all();
-        return $datos;
+        $datos = equipo::paginate(10);        ;
+        return view('equipo.index', compact('datos'));
     }
 
     /**

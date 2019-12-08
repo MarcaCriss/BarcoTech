@@ -6,7 +6,10 @@ use App\propietario;
 use Faker\Generator as Faker;
 
 $factory->define(propietario::class, function (Faker $faker) {
-    return [
-        //
+    return [        
+        'nombre' => $faker->name,
+        'valor_bote' => $faker->randomDigit,
+        'tamaño' => $faker->randomDigit,
+        'telefono' => $faker->phoneNumber,
     ];
 });

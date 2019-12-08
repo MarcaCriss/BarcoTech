@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-2">
     <form action="/equipo" method="POST" class=" p-3 bg-white border border-dark shadow-lg mb-5 rounded text-dark">
         @csrf
         <div class="display-4 text-center">

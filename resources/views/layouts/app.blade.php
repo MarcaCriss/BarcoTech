@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">    
                     <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -57,7 +57,7 @@
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
+                <!-- Sidebar user panel -->
                 @auth
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
@@ -69,9 +69,9 @@
                     </div>
                 @endauth
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
+                <nav class="mt-2 ">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">                                                    
-                        <li class="nav-item has-treeview menu-open">
+                        <li class="nav-item has-treeview menu-close">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <p>Cliente<i class="right fas fa-angle-left"></i></p>
@@ -85,6 +85,60 @@
                                 <li class="nav-item">
                                     <a href="/cliente/create" class="nav-link">                                        
                                         <p>Crear Cliente</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-archive" aria-hidden="true"></i>
+                                <p>Equipos<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/equipo" class="nav-link">
+                                        <p>Lista de equipos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/equipo/create" class="nav-link">                                        
+                                        <p>Crear equipos</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-archive" aria-hidden="true"></i>
+                                <p>Propietario<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/propietario" class="nav-link">
+                                        <p>Lista de propietarios</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/propietario/create" class="nav-link">                                        
+                                        <p>Crear Propietario</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-archive" aria-hidden="true"></i>
+                                <p>Barcos<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/bote" class="nav-link">
+                                        <p>Lista de Barco</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/bote/create" class="nav-link">                                        
+                                        <p>Crear Barco</p>
                                     </a>
                                 </li>
                             </ul>

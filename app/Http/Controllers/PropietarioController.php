@@ -14,7 +14,8 @@ class PropietarioController extends Controller
      */
     public function index()
     {
-        return view('propietario.index');
+        $datos = propietario::paginate(10);
+        return view('propietario.index', compact('datos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PropietarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('propietario.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class PropietarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = new propietario();
+        $datos->nombre = $request->nombre;
+        $datos->valor_bote = $request->valor_bote;
+        $datos->tamaño = $request->tamaño;
+        $datos->telefono = $request->telefono;
+        $datos->save();
+        toast('Propietario creado exitosamente','success'); 
+        return redirect('/propietario');
     }
 
     /**
