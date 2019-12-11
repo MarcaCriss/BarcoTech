@@ -8,6 +8,7 @@
     <link rel="stylesheet" href=" {{ asset('plugins/fontawesome-free/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -20,7 +21,8 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="/" class="nav-link">Home</a>
-                </li>      
+                </li>     
+                 
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">

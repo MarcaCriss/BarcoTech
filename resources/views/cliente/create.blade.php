@@ -2,7 +2,7 @@
 
 @section('content')
 @auth
-    <div class="container mt-2">
+    <div class="container mt-4">
         <h2>Registro de cliente</h2>    
         <hr>
         <form method="POST" action="/cliente">

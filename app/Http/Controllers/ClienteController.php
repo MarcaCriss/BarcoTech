@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\CreateRequestCliente;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -19,7 +20,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $datos = cliente::paginate(8);          
+        $datos = cliente::paginate(8);                  
         return view('cliente.index', compact('datos'));
     }
 
@@ -32,6 +33,13 @@ class ClienteController extends Controller
     {   
              
         return view('cliente.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $datos = DB::table('clientes')->where('nombre', 'like', '%'.$search.'%')->paginate(5);
+        return view('cliente.index', compact('datos'));
     }
 
     /**

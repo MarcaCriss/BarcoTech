@@ -18,3 +18,4 @@ Route::resource('/equipo', 'EquipoController');
 Route::resource('/tripulacion', 'TripulacionController');
 Route::resource('/propietario', 'PropietarioController');
 Route::resource('/bote', 'BoteController');
+Route::get('/search','ClienteController@search');
