@@ -26,7 +26,7 @@ class CreateRequestCliente extends FormRequest
         return [
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|integer',
+            'telefono' => 'required',
             'experiencia' => 'required',
         ];
     }

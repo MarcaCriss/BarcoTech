@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\viaje;
+use App\cliente;
+use App\tripulacion;
 use Illuminate\Http\Request;
 
 class ViajeController extends Controller
@@ -14,7 +16,8 @@ class ViajeController extends Controller
      */
     public function index()
     {
-        //
+        $viaje = viaje::all();
+        return view('viaje.index', compact('viaje'));
     }
 
     /**
@@ -24,7 +27,9 @@ class ViajeController extends Controller
      */
     public function create()
     {
-        //
+        $cliente = cliente::all();
+        $tripulacion = tripulacion::all();
+        return view('viaje.create', compact('cliente', 'tripulacion'));
     }
 
     /**
@@ -35,7 +40,14 @@ class ViajeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $viaje = new viaje();
+        $viaje->id_cliente = $request->cliente;
+        $viaje->id_tripulante = $request->tripulante;
+        $viaje->costo_viaje = $request->costo;
+        $viaje->salida = $request->salida;
+        $viaje->destino = $request->destino;
+        $viaje->save();
+        return redirect('/viaje');
     }
 
     /**

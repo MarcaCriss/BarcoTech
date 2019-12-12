@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container mt-3">        
-        <form action="/barco" class="border rounded shadow bg-info text-dark p-5">
+        <form action="/bote" class="border rounded shadow bg-info text-dark p-5" method="POST">
+            @csrf
             <p class="display-3">Registro de Barco</p>
             <hr>
             <div class="form-group">

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<br>
 <div class="container">    
      <!-- Boton para activar el modal-->
     <button type="button" class="btn btn-primary border-dark" data-toggle="modal" data-target="#exampleModal">
@@ -54,7 +55,30 @@
                         {{ $item->nombre }}
                     </div>
                     <div class="card-body">
-                        {{ $item->telefono }}
+                        Direccion : {{ $item->direccion }}
+                        <hr>
+                        Telefono : {{ $item->telefono }}
+                        <hr>
+                        Por hora : {{ $item->num_horas }}
+                        <hr>
+                        Valor por Hora  : {{ $item->valor_horas }}
+                    </div>
+                    <div class="card-footer bg-info">
+                        <div class="d-flex justify-content-between ">
+                            <a href="/tripulacion/{{$item->id}}/edit" class="btn btn-success border border-dark">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <form action="/tripulacion/{{$item->id}}" method="POST">
+                                @method('delete')
+                                @csrf
+                                <button 
+                                class="btn btn-danger border border-dark"
+                                onclick="return confirm('Esta seguro de eliminar este registro?')"
+                                >
+                                    <i class="fas fa-times"></i>  Eliminar
+                                </button> 
+                            </form>                                
+                        </div>
                     </div>
                 </div>
             </div>

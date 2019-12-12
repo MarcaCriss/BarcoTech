@@ -11,4 +11,10 @@ class equipo extends Model
     {
         return $this->belongsTo('App\tipoequipo', 'id_tipo_equipo');
     }
+
+    public function bote()
+    {
+        return $this->belongsTo('App\bote');
+    }
+    
 }

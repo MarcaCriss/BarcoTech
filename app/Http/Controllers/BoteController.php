@@ -17,7 +17,8 @@ class BoteController extends Controller
      */
     public function index()
     {
-                
+        $datos = bote::paginate(7);
+        return view('bote.index', compact('datos'));
     }
 
     /**
@@ -29,7 +30,7 @@ class BoteController extends Controller
     {
         $equipo = equipo::all();
         $propietario = propietario::all();
-        return view('barco.create', compact('equipo','propietario'));
+        return view('bote.create', compact('equipo','propietario'));
     }
 
     /**
@@ -40,7 +41,11 @@ class BoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = new bote();
+        $datos->id_propietario = $request->propietario;
+        $datos->id_equipo = $request->equipo;
+        $datos->save();
+        return redirect('/bote');
     }
 
     /**

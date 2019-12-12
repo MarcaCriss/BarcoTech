@@ -67,7 +67,7 @@ class TripulacionController extends Controller
      */
     public function edit(tripulacion $tripulacion)
     {
-        //
+        return view('tripulacion.edit', compact('tripulacion'));
     }
 
     /**
@@ -79,7 +79,14 @@ class TripulacionController extends Controller
      */
     public function update(CreateRequestTripulacion $request, tripulacion $tripulacion)
     {
-        //
+        $tripulacion->nombre = $request->nombre;
+        $tripulacion->direccion = $request->direccion;
+        $tripulacion->telefono = $request->telefono;
+        $tripulacion->num_horas = $request->numero_hora;
+        $tripulacion->valor_horas = $request->valor_hora;
+        $tripulacion->save();
+        toast('Tripulante actualizado exitosamente','success');         
+        return redirect('/tripulacion');
     }
 
     /**
@@ -90,6 +97,7 @@ class TripulacionController extends Controller
      */
     public function destroy(tripulacion $tripulacion)
     {
-        //
+        $tripulacion->delete();
+        return redirect()->back();
     }
 }

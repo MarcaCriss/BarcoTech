@@ -56,7 +56,7 @@ class ClienteController extends Controller
         $datos->telefono = $request->telefono;
         $datos->experiencia = $request->experiencia;
         $datos->save();                
-        toast('Cliente creado exitosamente','success'); 
+        toast('Cliente creado exitosamente','primary'); 
         return redirect('/cliente');
     }
 
@@ -78,8 +78,8 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(cliente $cliente)
-    {
-        //
+    {        
+        return view('cliente.edit', compact('cliente'));
     }
 
     /**
@@ -90,8 +90,14 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(CreateRequestCliente $request, cliente $cliente)
-    {
-        //
+    {        
+        $cliente->nombre = $request->nombre;
+        $cliente->direccion = $request->direccion;
+        $cliente->telefono = $request->telefono;
+        $cliente->experiencia = $request->experiencia;
+        $cliente->save();
+        toast('Cliente actualizado exitosamente','success'); 
+        return redirect('/cliente');
     }
 
     /**
@@ -102,6 +108,8 @@ class ClienteController extends Controller
      */
     public function destroy(cliente $cliente)
     {
-        //
+        $cliente->delete();
+        toast('Cliente eliminado exitosamente','danger'); 
+        return redirect('/cliente');
     }
 }

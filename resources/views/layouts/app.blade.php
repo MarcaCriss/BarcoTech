@@ -7,8 +7,7 @@
     <title>Barco Tech</title>
     <link rel="stylesheet" href=" {{ asset('plugins/fontawesome-free/css/all.min.css')}} ">
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">    
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">    
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -26,26 +25,36 @@
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item d-none d-sm-inline-block">
-                    @if (Route::has('login'))
-                        <div class="top-right links">
-                            @auth
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Cerrar Sesion') }}
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
-                            @else
-                                <a class="nav-item d-none d-sm-inline-block display-5" href="{{ route('login') }}">Login</a>
-                                    @if (Route::has('register'))
-                                        <a class="nav-item d-none d-sm-inline-block" href="{{ route('register') }}">Register</a>
-                                    @endif
-                            @endauth
-                        </div>
-                    @endif
-                </li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                </form>  
-            </ul>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>   
         </nav>
         <!-- /.navbar -->
 
@@ -72,9 +81,63 @@
                 @endauth
                 <!-- Sidebar Menu -->
                 <nav class="mt-2 ">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">                                                    
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">                                                                            
                         <li class="nav-item has-treeview menu-close">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-tools"></i>
+                                <p>Equipos<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/equipo" class="nav-link">
+                                        <p>Lista de equipos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/equipo/create" class="nav-link">                                        
+                                        <p>Crear equipos</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link ">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <p>Propietario<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/propietario" class="nav-link">
+                                        <p>Lista de propietarios</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/propietario/create" class="nav-link">                                        
+                                        <p>Crear Propietario</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ship"></i>
+                                <p>Barcos<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/bote" class="nav-link">
+                                        <p>Lista de Barco</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/bote/create" class="nav-link">                                        
+                                        <p>Crear Barco</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview menu-close">
+                            <a href="#" class="nav-link ">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <p>Cliente<i class="right fas fa-angle-left"></i></p>
                             </a>
@@ -92,55 +155,25 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview menu-close">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-archive" aria-hidden="true"></i>
-                                <p>Equipos<i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/equipo" class="nav-link">
-                                        <p>Lista de equipos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/equipo/create" class="nav-link">                                        
-                                        <p>Crear equipos</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            <a href=/tripulacion class="nav-link ">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <p>Tripulante</p>
+                            </a>                            
                         </li>
                         <li class="nav-item has-treeview menu-close">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-archive" aria-hidden="true"></i>
-                                <p>Propietario<i class="right fas fa-angle-left"></i></p>
+                            <a href="/viaje" class="nav-link ">
+                                <i class="fas fa-suitcase-rolling" aria-hidden="true"></i>
+                                <p>Viaje<i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/propietario" class="nav-link">
-                                        <p>Lista de propietarios</p>
+                                    <a href="/viaje" class="nav-link">
+                                        <p>Lista de viaje</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/propietario/create" class="nav-link">                                        
-                                        <p>Crear Propietario</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview menu-close">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-archive" aria-hidden="true"></i>
-                                <p>Barcos<i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/bote" class="nav-link">
-                                        <p>Lista de Barco</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/bote/create" class="nav-link">                                        
-                                        <p>Crear Barco</p>
+                                    <a href="/viaje/create" class="nav-link">                                        
+                                        <p>Crear viaje</p>
                                     </a>
                                 </li>
                             </ul>

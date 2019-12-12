@@ -1,7 +1,1 @@
-@extends('layouts.app')
-
-@section('content')
-@auth    
-    
-@endauth
-@endsection
+@extends('layouts.general')
