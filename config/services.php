@@ -34,5 +34,8 @@ return [
         'client_secret' => env('FACEBOOK_SECRET_ID') ,
         'redirect' => 'http://localhost:8000/login/facebook/callback'
     ],
+    'sendgrid' => [
+        'api_key' => env('SENDGRID_API_KEY'),
+    ]
 
 ];

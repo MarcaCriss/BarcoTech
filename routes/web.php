@@ -22,4 +22,5 @@ Route::resource('/tripulacion', 'TripulacionController');
 Route::resource('/propietario', 'PropietarioController');
 Route::resource('/bote', 'BoteController');
 Route::resource('/viaje', 'ViajeController');
+Route::resource('/informacion', 'InformacionController');
 Route::get('/search','ClienteController@search');

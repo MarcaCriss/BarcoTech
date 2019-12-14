@@ -8,49 +8,51 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
-        body{
-            background-image: url("img/barco.jpg")
-        }
+        body, html {        
+            background-image: url("img/barco.jpg");
+            background-repeat:no-repeat ;
+          }
+          
+          .container-thing {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+          }
+          
+          %circle {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            font-size: 4em;
+            border-radius: 50%;
+            margin-right: 50px;
+            
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          
+          .green {
+            @extend %circle;            
+            font-size: 25px;
+            border-radius:40%;
+          }
+          
+          .blue {
+            @extend %circle;            
+            font-size: 30px;
+            border-radius:40%;
+          }
+          .yellow {
+            @extend %circle;            
+            font-size: 30px;
+            border-radius:40%;
+          }
+              
     </style>
-    <script>
-        var green = document.querySelector('.green');
-
-        var animation = green.animate([
-        { transform: 'translateY(-2em)' },
-        { transform: 'translateY(2em)' }
-        ], {
-        duration: 1000,
-        iterations: Infinity,
-        direction: 'alternate',
-        easing: 'ease-in-out'
-        });
-
-        var blue = document.querySelector('.blue');
-
-        blue.animate([
-        { transform: 'translateY(-2em)', opacity: 0 },
-        { transform: 'translateY(2em)', opacity: 1}
-        ], {
-        duration: 1000,
-        iterations: Infinity,
-        direction: 'alternate',
-        easing: 'ease',
-        delay: 500
-        });
-
-        var yellow = document.querySelector('.yellow');
-
-        yellow.animate([
-        { transform: 'translateX(-2em) scale(1)' },
-        { transform: 'translateX(2em) scale(1.5)' }
-        ], {
-        duration: 1000,
-        direction: 'alternate',
-        iterations: Infinity,
-        easing: 'ease-in-out',
-        delay: 500
-        })
-    </script>
+   
 </head>
 <body>    
     <!-- Navbar -->
@@ -61,7 +63,10 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <p class="nav-link">BarcoTech</p>
+                <p class="nav-link">
+                    BarcoTech
+                </p>         
+                      
             </li>                      
         </ul>
         <!-- Right navbar links -->
@@ -101,14 +106,15 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     
-    <h2 class="bg-white espacio text-center">
-        Empresa de Viajes
-        <div class="container-thing">
-            <div class="green"></div>
-            <div class="blue"></div>
-            <div class="yellow"></div>
+
+        <div class="d-flex justify-content-center">
+            <div class="container-thing">                 
+                <div class="green">Empresa</div>
+                <div class="blue"></div>            
+                <div class="yellow">Viajes</div>            
+            </div>
         </div>
-    </h2>
+<br><br><br><br>
     <p class="bg-white espacio">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam sequi excepturi consequuntur architecto culpa soluta eligendi nulla natus perspiciatis nam, veniam fugit autem quos ipsum perferendis sunt illo similique eaque!
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia minus doloremque fugit quos odit doloribus, neque earum ex repellat deleniti cum esse illo ipsam exercitationem, delectus officia, nihil sequi eveniet!
@@ -309,7 +315,35 @@
     </div>
 </div>    
 
-
+<div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">  
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><h2>Contactos</h2></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>        
+            <div class="modal-body">                    
+                <form method="POST" action="/informacion">
+                    <p class="display-5">Por favor rellene sus datos para poder comunicarnos con usted : </p>
+                    @csrf		
+                    <div class="form-group">
+                        <label for="name">Ingrese su nombre : </label>
+                        <input type="text" name="nombre" id="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Ingrese su correo electronico : </label>
+                        <input type="text" name="direccion" id="address" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>    
+            </div>          
+        </div>
+    </div>
+</div>    
 
 <div class="card">
     <div class="card-footer bg-white">
@@ -318,11 +352,51 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi veritatis possimus porro maiores ex obcaecati, labore cum? Minima in corrupti facere, mollitia veniam doloremque omnis quidem ex exercitationem aperiam. Porro.
             </div>
             <div class="col">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi veritatis possimus porro maiores ex obcaecati, labore cum? Minima in corrupti facere, mollitia veniam doloremque omnis quidem ex exercitationem aperiam. Porro.
+                <div class="container">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi veritatis possimus porro maiores ex obcaecati, labore cum? Minima in corrupti facere, mollitia veniam doloremque omnis quidem ex exercitationem aperiam. Porro.
+                    <a href="/contacto" data-toggle="modal" data-target="#exampleModalLong4"><p class="display-5">Contactanos para mas informacion</p></a>
+                </div>        
             </div>
         </div>
     </div>
 </div>
+<script>var green = document.querySelector('.green');
+
+    var animation = green.animate([
+      { transform: 'translateY(-2em)' },
+      { transform: 'translateY(2em)' }
+    ], {
+      duration: 1000,
+      iterations: Infinity,
+      direction: 'alternate',
+      easing: 'ease-in-out'
+    });
+    
+    var blue = document.querySelector('.blue');
+    
+    blue.animate([
+      { transform: 'translateY(-2em)', opacity: 0 },
+      { transform: 'translateY(2em)', opacity: 1}
+    ], {
+      duration: 1000,
+      iterations: Infinity,
+      direction: 'alternate',
+      easing: 'ease',
+      delay: 500
+    });
+    var yellow = document.querySelector('.yellow');
+    
+    yellow.animate([
+      { transform: 'translateY(-2em)', opacity: 0 },
+      { transform: 'translateY(2em)', opacity: 1}
+    ], {
+      duration: 1000,
+      iterations: Infinity,
+      direction: 'alternate',
+      easing: 'ease',
+      delay: 500
+    });
+    </script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
